@@ -1,0 +1,20 @@
+name: Development pipeline
+
+on:
+  pull-request:
+    branches: [master]
+    types: [opened]
+
+jobs:
+  test-ocr:
+    name: test-ocr
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v2
+      - uses: s-weigand/setup-conda@v1
+      - name: Start docker compose
+        run: docker-compose up
+      - uses: fjogeleit/http-request-action@master
+        with:
+          url: 'http://localhost:5000/test'
+          method: 'GET'

@@ -1,0 +1,14 @@
+# Flask-Tesseract5
+image
+pillow==7.1.2
+pytesseract
+scikit-build
+opencv-python
+Flask
+flask-restful
+
+# Voon
+youtube-dl
+nltk
+PyGithub
+requests
