@@ -17,6 +17,9 @@ jobs:
       - name: sleep
         run: sleep 60
       - uses: fjogeleit/http-request-action@master
+        id: test_OCR 
         with:
           url: 'http://localhost:5000/test'
           method: 'GET'
+      - name: response
+        run: echo ${{ steps.test_OCR.outputs.response }}
